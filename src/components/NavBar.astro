@@ -1,4 +1,5 @@
 ---
+import Hamburger from "./Hamburger.astro"
 ---
 
 <div class="navigation">
@@ -10,11 +11,8 @@
       <a href="/">Home</a>
       <a href="/about/">About</a>
     </nav>
-    <a class="toggle-button">
-      <span class="bar"></span>
-      <span class="bar"></span>
-      <span class="bar"></span>
-    </a>
+    <Hamburger class="toggle-button" />
+
   </div>
 </div>
 <div class="mobilelinks">
@@ -129,10 +127,6 @@
       display: none;
     }
 
-    .toggle-button {
-      display: flex;
-    }
-
     .mobilelinks.active {
     display: flex;
   }
@@ -161,10 +155,12 @@
       }
     });
 
-    const toggleButton = document.getElementsByClassName("toggle-button")[0];
+    const toggleButton = document.getElementById("nav-icon3");
     const navbarLinks = document.getElementsByClassName("mobilelinks")[0];
     toggleButton.addEventListener('click', () => {
       navbarLinks.classList.toggle('active');
+      toggleButton.classList.toggle('open');
+      console.log(toggleButton.classList);
     })
   }, { once: false });
 </script>
