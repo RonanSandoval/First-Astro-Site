@@ -16,10 +16,10 @@
       <span class="bar"></span>
     </a>
   </div>
-  <div class="mobilelinks">
-      <a href="/">Home</a>
-      <a href="/about/">About</a>
-  </div>
+</div>
+<div class="mobilelinks">
+  <a href="/">Home</a>
+  <a href="/about/">About</a>
 </div>
 
 <style>
@@ -96,7 +96,11 @@
   .mobilelinks {
     display: none;
     flex-direction: column;
+    height: 100%;
+    width: 100%;
     background-color: rgb(27, 27, 27);
+    position: fixed;
+    z-index: 9;
   }
 
   .mobilelinks a {
@@ -139,26 +143,28 @@
 
 <!--Set active class on nav when the page is active -->
 <script>
-  const nav = document.querySelector(".navbar");
-  const navLinks = nav.querySelectorAll("a");
-  const currentURL = window.location.href;
-  navLinks.forEach((link) => {
-    if (link.href === currentURL) {
-      link.classList.add("active");
-    }
-  });
+  document.addEventListener('astro:page-load', () => {
+    const nav = document.querySelector(".navbar");
+    const navLinks = nav.querySelectorAll("a");
+    const currentURL = window.location.href;
+    navLinks.forEach((link) => {
+      if (link.href === currentURL) {
+        link.classList.add("active");
+      }
+    });
 
-  const mobile = document.querySelector(".mobilelinks");
-  const mobileLinks = mobile.querySelectorAll("a");
-  mobileLinks.forEach((link) => {
-    if (link.href === currentURL) {
-      link.classList.add("active");
-    }
-  });
+    const mobile = document.querySelector(".mobilelinks");
+    const mobileLinks = mobile.querySelectorAll("a");
+    mobileLinks.forEach((link) => {
+      if (link.href === currentURL) {
+        link.classList.add("active");
+      }
+    });
 
-  const toggleButton = document.getElementsByClassName("toggle-button")[0];
-  const navbarLinks = document.getElementsByClassName("mobilelinks")[0];
-  toggleButton.addEventListener('click', () => {
-    navbarLinks.classList.toggle('active')
-  })
+    const toggleButton = document.getElementsByClassName("toggle-button")[0];
+    const navbarLinks = document.getElementsByClassName("mobilelinks")[0];
+    toggleButton.addEventListener('click', () => {
+      navbarLinks.classList.toggle('active');
+    })
+  }, { once: false });
 </script>
