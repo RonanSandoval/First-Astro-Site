@@ -6,7 +6,8 @@ interface Props {
 const { title } = Astro.props;
 
 import { ViewTransitions } from "astro:transitions";
-import NavBar from "../components/NavBar.astro"
+import NavBar from "../components/NavBar.astro";
+import Footer from "../components/Footer.astro";
 ---
 
 <!doctype html>
@@ -22,7 +23,8 @@ import NavBar from "../components/NavBar.astro"
 	</head>
 	<body>
 		<NavBar transition:name="navbar"></NavBar>
-		<slot />
+		<slot/>
+		<Footer transition:name="footer"></Footer>
 	</body>
 </html>
 <style is:global>
@@ -61,5 +63,8 @@ import NavBar from "../components/NavBar.astro"
 	html, body {
 		margin: 0;
 		padding: 0;
+		min-height: 100vh;
+		display: flex;
+		flex-direction: column;
 	}  
 </style>
