@@ -1,0 +1,54 @@
+---
+interface Props {
+    backgroundColor: string;
+    color: string;
+    onLeft: boolean;
+}
+
+const { backgroundColor, color, onLeft } = Astro.props;
+---
+
+<div class="section" style={{backgroundColor: backgroundColor, color: color}}>
+    <div id="left-img" class="image-left"/>
+    <div class="section-content">
+        <slot/>
+    </div>
+    <div id="right-img" class="image-right"/>
+</div>
+
+<style>
+    .section {
+        max-width: 100%;
+        min-height: 50vh;
+        display: flex;
+        flex-direction: row;
+    }
+
+    .section .image-left {
+        width: 50vw;
+        max-width: 50%;
+        background-size:cover;
+        background-image: url("../images/metal.jpg");
+    }
+
+    .section .image-right {
+        width: 50%;
+        background-size:cover;
+        background-image: url("../images/30Days.png");
+    }
+
+    .section .section-content {
+		width: 800px;
+		max-width: 40%;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+        margin: auto;
+        
+    }
+
+</style>
+
+<script define:vars={{onLeft : onLeft}}>
+    document.getElementById("left-img").style.display = onLeft ? "block" : "none";
+    document.getElementById("right-img").style.display = !onLeft ? "block" : "none";
+</script>
