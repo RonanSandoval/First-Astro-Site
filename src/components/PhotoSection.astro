@@ -3,20 +3,22 @@ interface Props {
     backgroundColor: string;
     color: string;
     onLeft: boolean;
+    image: string
 }
 
-const { backgroundColor, color, onLeft } = Astro.props;
+const { backgroundColor, color, onLeft, image } = Astro.props;
 ---
 
 <div class="section" style={{backgroundColor: backgroundColor, color: color}}>
-    <div id="left-img" class="image-left"/>
+    <div id="left-img" class="image-left" style={`background-image: url(${image});`}/>
     <div class="section-content">
         <slot/>
     </div>
-    <div id="right-img" class="image-right"/>
+    <div id="right-img" class="image-right" style={`background-image: url(${image});`}/>
 </div>
 
-<style>
+<style define:vars={{image: image}}>
+
     .section {
         max-width: 100%;
         min-height: 50vh;
@@ -28,13 +30,12 @@ const { backgroundColor, color, onLeft } = Astro.props;
         width: 50vw;
         max-width: 50%;
         background-size:cover;
-        background-image: url("../images/metal.jpg");
+
     }
 
     .section .image-right {
         width: 50%;
         background-size:cover;
-        background-image: url("../images/30Days.png");
     }
 
     .section .section-content {
@@ -51,7 +52,7 @@ const { backgroundColor, color, onLeft } = Astro.props;
 <script define:vars={{onLeft : onLeft}}>
     document.addEventListener('astro:page-load', () => {
         document.getElementById("left-img").style.display = onLeft ? "block" : "none";
-    document.getElementById("right-img").style.display = !onLeft ? "block" : "none";
+        document.getElementById("right-img").style.display = !onLeft ? "block" : "none";
     });
     
 </script>

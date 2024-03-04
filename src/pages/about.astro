@@ -22,11 +22,14 @@ import Contact from '../components/Contact.astro'
 			<h1>Section Header</h1>
     		<p> Text text text text text.</p>
 		</Section>
-		<PhotoSection backgroundColor= {constants.DARKCOLOR} color="white" onLeft={true}>
+		<PhotoSection backgroundColor= {constants.DARKCOLOR} color="white" onLeft={true} image="/images/metal.jpg" >
 			<h1>Section Header</h1>
     		<p> Text text text text text.</p>
 		</PhotoSection>
-		<Contact></Contact>
+		<Section backgroundColor={constants.DARKCOLOR} color="white">
+			<h1> Contact Us</h1>
+			<Contact></Contact>
+		</Section>
 	</main>
 </Layout>
 
