@@ -49,6 +49,9 @@ const { backgroundColor, color, onLeft } = Astro.props;
 </style>
 
 <script define:vars={{onLeft : onLeft}}>
-    document.getElementById("left-img").style.display = onLeft ? "block" : "none";
+    document.addEventListener('astro:page-load', () => {
+        document.getElementById("left-img").style.display = onLeft ? "block" : "none";
     document.getElementById("right-img").style.display = !onLeft ? "block" : "none";
+    });
+    
 </script>
