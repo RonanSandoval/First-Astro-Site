@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Hero from '../components/Hero.astro';
+import Project from '../components/Project.astro'
 ---
 
 <Layout title="Welcome to Astro.">
@@ -14,7 +15,12 @@ import Hero from '../components/Hero.astro';
 			
 		</p>
 		</div>
-		
+		<div class="project-section">
+			<Project></Project>
+			<Project></Project>
+			<Project></Project>
+			<Project></Project>
+		</div>
 	</main>
 </Layout>
 
@@ -31,5 +37,13 @@ import Hero from '../components/Hero.astro';
 		color: rgb(0, 0, 0);
 		font-size: 20px;
 		line-height: 1.6;
+	}
+
+	.project-section {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		justify-content: center;
+		max-width: calc(100% - 2rem);
 	}
 </style>
