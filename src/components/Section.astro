@@ -1,0 +1,43 @@
+---
+interface Props {
+    backgroundColor: string;
+    color: string;
+}
+
+const { backgroundColor, color } = Astro.props;
+---
+
+<div class="section" style={{backgroundColor: backgroundColor, color: color}}>
+    <div class="section-content">
+        <slot/>
+    </div>
+</div>
+
+<style is:global>
+    .section {
+        width: 100vw;
+        max-width: 100%;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .section .section-content {
+		width: 800px;
+		max-width: calc(100% - 2rem);
+        margin: auto;
+        
+    }
+
+    .section h1 {
+        padding: 1rem;
+        padding-top: 0;
+    }
+
+    .section p {
+        padding: 1rem;
+        padding-top: 0;
+    }
+
+</style>

@@ -1,26 +1,34 @@
 ---
+import * as constants from "../constants"
+
 import Layout from '../layouts/Layout.astro';
-import Card from '../components/Card.astro';
+import Section from '../components/Section.astro'
 ---
 
 <Layout title="Welcome to Astro.">
 	<main transition:animate="slide">
-		<h1>Welcome to <span class="text-gradient">About</span></h1>
-		<p class="instructions">
-			To get started, open the directory <code>src/pages</code> in your project.<br />
-			<strong>Code Challenge:</strong> Tweak the "Welcome to Astro" message above.
-			
-		</p>
-
+		<Section backgroundColor="white" color="black">
+			<h1>Welcome to <span class="text-gradient">About</span></h1>
+			<p class="instructions">
+				To get started, open the directory <code>src/pages</code> in your project.<br />
+				<strong>Code Challenge:</strong> Tweak the "Welcome to Astro" message above.
+				
+			</p>
+		</Section>
+		
+		<Section backgroundColor= {constants.PRIMARYCOLOR} color="white">
+			<h1>Section Header</h1>
+    		<p> Text text text text text.</p>
+		</Section>
 	</main>
 </Layout>
 
 <style>
 	main {
 		margin: auto;
-		padding: 1rem;
-		width: 800px;
-		max-width: calc(100% - 2rem);
+		/* padding: 1rem; */
+		/* width: 800px; */
+		/* max-width: calc(100% - 2rem); */
 		color: rgb(0, 0, 0);
 		font-size: 20px;
 		line-height: 1.6;
