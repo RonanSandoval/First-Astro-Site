@@ -3,21 +3,28 @@ import { Icon } from 'astro-icon/components'
 ---
 
 <div class="footer">
-    <div class="footer-info">
-        100 street street <br>
-        Edmonton Alberta
-        <div class="socials">
-            <a href="" target="_blank">
-                <Icon name="mdi:instagram"/>
-            </a>
-            <a href="" target="_blank">
-                <Icon name="mdi:facebook"/>
-            </a>
-            <a href="" target="_blank">
-                <Icon name="mdi:linkedin"/>
-            </a>
+    <div class="footer-content">
+        <div class="footer-links">
+            <h4>Quick Menu</h4>
+            <a href="/">Home</a>
+            <a href="/about">About</a>
+        </div>
+        <div class="footer-info">
+            100 street street <br>
+            Edmonton Alberta <br><br>
+            company@gmail.com
+            <div class="socials">
+                <a href="" target="_blank">
+                    <Icon name="mdi:instagram"/>
+                </a>
+                <a href="" target="_blank">
+                    <Icon name="mdi:facebook"/>
+                </a>
+                <a href="" target="_blank">
+                    <Icon name="mdi:linkedin"/>
+                </a>
+        </div>
     </div>
-        
     </div>
     <p class="copyright"> Copyright 2024 - Company Name. All rights reserved </p>
 </div>
@@ -29,6 +36,36 @@ import { Icon } from 'astro-icon/components'
         color: white;
         padding-bottom: 1rem;
         padding-top: 1rem;
+    }
+
+    .footer-content {
+        display: flex;
+        flex-direction: row;
+        width: 800px;
+		max-width: calc(100% - 2rem);
+        margin: auto;  
+    }
+
+    .footer-links {
+        padding: 1rem;
+        margin-left: 2rem;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .footer-links h4 {
+        margin-top: 0;
+        margin-bottom: 0.5rem;
+    }
+
+    .footer-links a {
+        margin-bottom: 0.5rem;
+        transition: all 100ms ease-in-out;
+        color: white;
+    }
+
+    .footer-links a:hover {
+        color: darkgreen;
     }
 
     .footer-info {
